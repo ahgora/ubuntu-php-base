@@ -1,1 +1,4 @@
-# ubuntu-php7-build
+# ubuntu-php-base
+
+Ubuntu with PHP libraries utilized for apps in development.
+
