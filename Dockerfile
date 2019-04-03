@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-ENV PHP_VERSION=7.2
+ENV PHP_VERSION=7.3
 
 RUN apt-get update \
     && apt-get install -y software-properties-common language-pack-pt-base language-pack-en-base \
