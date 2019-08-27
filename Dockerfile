@@ -1,11 +1,11 @@
 FROM ubuntu:xenial
 
 ENV PHP_VERSION=7.3
-ARG SWOOLE_VERSION=4.4.3
+ARG SWOOLE_VERSION=4.4.4
 ARG MONGODB_VERSION=1.5.5
 
 RUN apt-get update \
-    && apt-get install -y gzip zip unzip build-essential curl \
+    && apt-get install -y gzip zip unzip zlib-dev build-essential curl \
     software-properties-common language-pack-pt-base language-pack-en-base \
     && LC_ALL=C.UTF-8 add-apt-repository ppa:ondrej/php \
     && apt-get update \
