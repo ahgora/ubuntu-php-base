@@ -1,16 +1,15 @@
 FROM ubuntu:bionic
 
-ENV PHP_VERSION=7.3
+ENV PHP_VERSION=7.4
 ARG SWOOLE_VERSION=4.4.14
 ARG MONGODB_VERSION=1.6.1
 ARG REDIS_VERSION=5.1.1
+ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install -y gzip zip unzip zlib1g-dev build-essential curl \
     software-properties-common language-pack-pt-base language-pack-en-base \
     && LC_ALL=C.UTF-8 
-
-ARG DEBIAN_FRONTEND=noninteractive
 
 RUN add-apt-repository ppa:ondrej/php \
     && apt-get update \
