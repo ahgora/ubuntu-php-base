@@ -1,9 +1,8 @@
 FROM ubuntu:focal
 
 ENV PHP_VERSION=7.4
-ARG SWOOLE_VERSION=4.5.2
-ARG MONGODB_VERSION=1.8.0
-ARG REDIS_VERSION=5.3.1
+ARG MONGODB_VERSION=1.9.0
+ARG REDIS_VERSION=5.3.3
 ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
@@ -22,9 +21,6 @@ RUN add-apt-repository ppa:ondrej/php \
 RUN pecl install mongodb-${MONGODB_VERSION} \
     && echo "extension=mongodb.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` \
     && echo "extension=mongodb.so" >> /etc/php/${PHP_VERSION}/fpm/php.ini \
-    && pecl install swoole-${SWOOLE_VERSION} \
-    && echo "extension=swoole.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` \
-    && echo "extension=swoole.so" >> /etc/php/${PHP_VERSION}/fpm/php.ini \
     && pecl install redis-${REDIS_VERSION} \
     && echo "extension=redis.so" >> `php --ini | grep "Loaded Configuration" | sed -e "s|.*:\s*||"` \
     && echo "extension=redis.so" >> /etc/php/${PHP_VERSION}/fpm/php.ini \
